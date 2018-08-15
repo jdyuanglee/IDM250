@@ -1,0 +1,14 @@
+.searchbar{
+    height: 2rem;
+    display: flex;
+    width: 20%;
+    margin: auto;
+}
+.result{
+    width: 70%;
+    margin: auto;
+}
+hr{
+    width: 70%;
+    margin: auto;
+}
