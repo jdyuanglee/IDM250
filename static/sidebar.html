@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Yuang Li</title>
+    <title>Sidebar Page</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link href="https://fonts.googleapis.com/css?family=Radley" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/archive2.css">
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/responsive_navbar.js"></script>
 </head>
 
@@ -24,7 +25,7 @@
             <p>Yuang Li</p>
             <img src="resources/signature2.png" alt="logo">
         </div>
-        <div class="search">
+        <div class="search" onclick="location.href='search.html';">
             <img src="resources/magnify.png" alt="search">
         </div>
         <div class="ph"></div>
@@ -95,23 +96,29 @@
                     <li>Games</li>
                     <li>UI/UX</li>
                     <li>WebDev</li>
-                    <liIoT>
-                        </li>
-                        <li>App</li>
-                        <li>SIGGRAPH</li>
+                    <li>App</li>
+                    <li>SIGGRAPH</li>
                 </ul>
             </div>
             <div class="section">
-                <h3>Recomandation</h3>
-                <div class="recomand">
-                    <img src="resources/bunch.png" alt="bunch">
-                    <p>How a Bunch of Lava Lamps Protect Us From Hackers</p>
+                    <h3>Recomandation</h3>
+                    <div class="recomand">
+                        <a href="single.html">
+                            <img src="resources/bunch.png" alt="bunch">
+                        </a>
+                        <a href="single.html">
+                            <p>How a Bunch of Lava Lamps Protect Us From Hackers</p>
+                        </a>
+                    </div>
+                    <div class="recomand">
+                        <a href="single.html">
+                            <img src="resources/blueair.png" alt="blueair">
+                        </a>
+                        <a href="single.html">
+                            <p>Breathe Easy With This Wi-Fi-Enabled Air Purifier</p>
+                        </a>
+                    </div>
                 </div>
-                <div class="recomand">
-                    <img src="resources/blueair.png" alt="blueair">
-                    <p>Breathe Easy With This Wi-Fi-Enabled Air Purifier</p>
-                </div>
-            </div>
         </aside>
 
         <div class="media">
