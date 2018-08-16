@@ -1,27 +1,32 @@
-main > *{
+main p, main h1{
 	margin: 1rem 0;
 }
 aside > *{
-	margin: 1rem 0;
+	/* margin: 1rem 0; */
 }
 aside{
-	width: 50%;
+	width: 100%;
 	padding: 0 1rem;
 }
 main img{
 	width: 100%;
 }
 hr{
+	margin: .5rem 0;
 	text-align: center;
 	width: 5rem;
 }
 main p{
 	line-height: 1.5rem;
-	margin: 3rem 1rem;
+	/* margin: 3rem 1rem; */
 }
 
-main{
-	margin: 0 2vw 0 20vw;
+.archive{
+	margin: auto;
+	padding: 1rem;
+}
+h1{
+	font-size: 1.4rem;
 }
 .section{
 	margin: 3rem 0;
@@ -34,8 +39,8 @@ main{
 	"menu logo logo search"
 	"ph ph ph ph"
 	"nav nav nav nav"
-	"aside aside aside aside"
 	"main main main main"
+	"aside aside aside aside"
 	"media media . footer";
 }
 
@@ -58,29 +63,42 @@ h3{
 }
 
 @media (min-width: 768px){
+	main{
+		width: 50%;
+		margin: 1rem auto;
+	}
 	aside{
-		margin: 1rem;
-	}
-	nav ul li:nth-child(1) a{
-		color: #000;
-	}
-	li:nth-child(1) > a:before{
-		visibility: hidden;
+		width: 50%;
+		margin: 4rem auto;
 	}
 	.grid{
 		display: grid;
-		grid-template-columns: 5rem 23rem 1fr 5rem;
+		grid-template-columns: 5rem 1fr 1fr 5rem;
 		grid-template-rows: 9vh auto;
 		grid-template-areas: 
 		"menu logo logo search"
 		"ph ph ph ph"
         "nav nav nav nav"
+		"main main main main"
         "aside aside aside aside"
-		". main main ."
 		". media footer .";
 	}
 }
 @media (min-width: 960px){
+	.archive{
+		margin: 2rem 2vw 0 20vw;
+	}
+	main > *{
+		margin: 1rem;
+	}
+	main{
+		width: 100%;
+	}
+	aside{
+		width: 50%;
+		padding: 0 1rem;
+		margin: 3rem 0;
+	}
 	main p{
 		font-size: .8rem;
 		margin: 0;
