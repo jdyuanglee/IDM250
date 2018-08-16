@@ -4,6 +4,9 @@ main > *{
 h1, h5{
 	text-align: center;
 }
+h1{
+	font-size: 1.6rem;
+}
 h5{
 	color: #aaa;
 }
@@ -60,12 +63,6 @@ h3{
 @media (min-width: 768px){
 	aside{
 		margin: 1rem;
-	}
-	nav ul li:nth-child(1) a{
-		color: #000;
-	}
-	li:nth-child(1) > a:before{
-		visibility: hidden;
 	}
 	.grid{
 		display: grid;
