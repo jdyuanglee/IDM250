@@ -1,12 +1,14 @@
 main > *{
 	margin: 1rem 0;
 }
-aside > *{
-	margin: 1rem 0;
+h1, h5{
+	text-align: center;
 }
-aside{
-	width: 50%;
-	padding: 0 1rem;
+h5{
+	color: #aaa;
+}
+main img{
+	width: 100%;
 }
 hr{
 	text-align: center;
@@ -18,7 +20,8 @@ main p{
 }
 
 main{
-	margin: 0 2vw 0 20vw;
+	margin: auto;
+	width: 80%;
 }
 .section{
 	margin: 3rem 0;
@@ -78,9 +81,12 @@ h3{
 	}
 }
 @media (min-width: 960px){
+	main{
+		width: 35vw;
+	}
 	main p{
 		font-size: .8rem;
-		margin: 0;
+		margin: 1rem 0;
 	}
 	.grid{
 		display: grid;
@@ -90,7 +96,7 @@ h3{
 		"menu logo logo search"
 		"ph ph ph ph"
 		"nav nav nav nav"
-		"main main aside aside"
+		"main main main main"
 		". media footer .";
 	}
 }
