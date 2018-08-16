@@ -1,7 +1,7 @@
 main{
 	margin: -3rem 2rem;
 	text-align: left;
-}
+}`
 ul{
     margin-left: 1rem;
 }
@@ -43,7 +43,7 @@ iframe{
     main{
         margin: 1rem 2rem;
 		text-align: left;
-		max-width: 62%;
+		max-width: 68%;
 		margin: auto;
     }
     .header{
@@ -53,12 +53,6 @@ iframe{
 	main p{
 		font-size: .8rem;
 		padding: 2.5rem 0;		
-	}
-	nav ul li:nth-child(4) a{
-		color: #27849d;
-	}
-	li:nth-child(4) > a:before{
-	visibility: hidden;
 	}
 	.grid{
 		display: grid;
@@ -71,4 +65,9 @@ iframe{
 		". main main ."
 		". media footer .";
 	}
+}
+@media screen and (min-width: 960px){
+	main{
+		max-width: 48%;
+    }
 }
