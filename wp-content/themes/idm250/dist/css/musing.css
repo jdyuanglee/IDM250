@@ -1,0 +1,47 @@
+main{
+	margin: 1rem 2rem;
+	text-align: center;
+}
+main p{
+	padding: 2rem 0;
+}
+.grid{
+	display: grid;
+	grid-template-columns: 4rem 1fr 1fr 5rem;
+	grid-template-rows: 9vh auto;
+	grid-template-areas: 
+	"menu logo logo search"
+	"ph ph ph ph"
+	"nav nav nav nav"
+	"aside aside aside aside"
+	"main main main main"
+	"media media . footer";
+}
+@media screen and (min-width: 768px){
+	main{
+		text-align: center;
+		max-width: 62%;
+		margin: auto;
+	}
+	main p{
+		font-size: .8rem;
+		padding: 2.5rem 0;		
+	}
+	nav ul li:nth-child(4) a{
+		color: #27849d;
+	}
+	li:nth-child(4) > a:before{
+	visibility: hidden;
+	}
+	.grid{
+		display: grid;
+		grid-template-columns: 5rem 1fr 1fr 5rem;
+		grid-template-rows: 9vh auto;
+		grid-template-areas: 
+		"menu logo logo search"
+		"ph ph ph ph"
+		"nav nav nav nav"
+		". main main ."
+		". media footer .";
+	}
+}
