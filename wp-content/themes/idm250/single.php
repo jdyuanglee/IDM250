@@ -11,4 +11,4 @@
  *
  */
 
-get_template_part('templates/template-general');
+get_template_part('templates/template-single');
