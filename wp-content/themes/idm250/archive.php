@@ -1,127 +1,65 @@
 <?php 
 /**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
+ * The template for displaying archive pages
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
+ *
  */
-
 get_header(); ?>
 
-<main>
-    <div class="archive">
-        <a href="single.html">
-            <img src="resources/schmearit.png" alt="title">
-        </a>
-        <a href="single.html">
-            <h1>Schmear It Mobile App</h1>
-        </a>
-        <h5>June 2nd, 2018</h5>
-        <p>Over the past 10 weeks our group has been working closely with Schmear It and their customers to create a
-            brand new mobile ordering experience. We conducted primary research, went through multiple rounds of
-            ideation and user testing, and ultimately created a final interactive mockup in Sketch and Flinto. Through
-            this process we learned the importance of collaboration, user testing, team meetings, and understanding
-            business requirements. We are extremely pleased with the final application and hope Schmear It’s users
-            love it as well.</p>
-        <ul>
-            <li>#UI / UX</li>
-            <li>#Coursework</li>
-            <li>#Mircointeraction</li>
-            <li>#Sketch</li>
-            <li>#Flinto</li>
-        </ul>
-    </div>
-    <div class="archive">
-        <a href="single.html">
-            <img src="resources/LavaLamps.jpg" alt="title">
-        </a>
-        <a href="single.html">
-            <h1>How a Bunch of Lava Lamps Protect Us From Hackers</h1>
-        </a>
-        <h5>April 19th, 2018</h5>
-        <p>#MondayMotivation: #CNY celebrations are like a marathon not a sprint. Keep up the festive momentum and celebrate
-            with the #CNY emoji using the below hashtags from now until Mar 2nd. </p>
-        <ul>
-            <li>#Tech</li>
-            <li>#Research</li>
-            <li>#News</li>
-        </ul>
-    </div>
-    <div class="archive">
-        <a href="single.html">
-            <img src="resources/yearofthedog.png" alt="title">
-        </a>
-        <a href="single.html">
-            <h1>Year of the dog</h1>
-        </a>
-        <h5>Date and time</h5>
-        <p>Edward Craven Walker lived to see his greatest invention, the lava lamp, make its late-’90s cultural comeback.
-            But the British tinkerer (and famed nudist, incidentally) died before he could witness the 21st-­century
-            digital potential of his analog creation. Inside the San Francisco office of the web security company
-            Cloudflare, 100 units of Craven Walker’s groovy hardware help protect wide swaths of the internet from
-            infiltration.
-        </p>
-        <ul>
-            <li>#YearOfTheDog</li>
-            <li>#LunarNewYear</li>
-            <li>#GongXiFaCai</li>
-        </ul>
-    </div>
-</main>
+<div class="archive-grid">
+        <main class="archive-main">
+            <?php if (have_posts()): ?>
+            <?php // TO SHOW THE PAGE CONTENTS?>
+            <?php while (have_posts()) : the_post(); ?> <!--Because the_content() works only inside a WP Loop -->
+            <div class="archive-content">
+                <a href="<?php the_permalink(); ?>">
+                    <h1><?php the_title(); ?></h1> 
+                </a>
+                <p><?php the_excerpt(); ?></p>
+            </div>
+                <?php endwhile; //resetting the page loop?>
+                <?php wp_reset_query(); //resetting the page query?>
+            <?php else: ?>
+                <h2>Sorry, No Post Found</h2>
+            <?php endif; ?>
+        </main>
 
-<aside>
-    <hr>
-    <h1>
-        BLOG
-    </h1>
-    <hr>
-    <div class="section">
-        <h3>Why is important</h3>
-        <p>Musing is one of the important part of my creation and studys. It is about a period of reflection or thought
-            to refresh myself and trash some of the minds.</p>
-    </div>
-    <div class="section">
-        <h3>Recent Posts</h3>
-        <ul>
-            <li>Schmear It</li>
-            <li>Year of the dog</li>
-            <li>How a bunch of lava lamps protect us from hackers</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h3>Tags</h3>
-        <ul>
-            <li>Tech</li>
-            <li>Games</li>
-            <li>UI/UX</li>
-            <li>WebDev</li>
-            <li>App</li>
-            <li>SIGGRAPH</li>
-        </ul>
-    </div>
-    <div class="section">
-        <h3>Recomandation</h3>
-        <div class="recomand">
-            <a href="single.html">
-                <img src="resources/bunch.png" alt="bunch">
-            </a>
-            <a href="single.html">
-                <p>How a Bunch of Lava Lamps Protect Us From Hackers</p>
-            </a>
-        </div>
-        <div class="recomand">
-            <a href="single.html">
-                <img src="resources/blueair.png" alt="blueair">
-            </a>
-            <a href="single.html">
-                <p>Breathe Easy With This Wi-Fi-Enabled Air Purifier</p>
-            </a>
-        </div>
-    </div>
-</aside>
 
+        <aside class="archive-aside">
+            <h1><?php echo get_the_archive_title(); ?></h1>
+            <div class="archive-section">
+                <h3>Archives by month</h3>
+                <ul>    
+                    <?php
+                        $arg = [
+                            'type' => 'monthly'
+                        ];
+                        wp_get_archives($arg);
+                    ?>
+                </ul>
+            </div>
+            <div class="archive-section">
+                <h3>Archives by Year</h3>
+                <ul>    
+                    <?php
+                        $arg = [
+                            'type' => 'yearly'
+                        ];
+                        wp_get_archives($arg);
+                    ?>
+                </ul>
+            </div>
+            <div class="archive-section">
+            <h3>Archives by categories</h3>
+            <ul>    
+                <?php
+                $categories = get_categories();
+                foreach ($categories as $category): ?>
+                <li><a href="<?php echo get_category_link($category); ?>"><?php echo $category->name ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+            </div>
+        </aside>
+</div>
 <?php get_footer(); ?>
