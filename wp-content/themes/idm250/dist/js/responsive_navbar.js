@@ -1,6 +1,6 @@
-$(document).ready(function(){
-    $('.hb-button').on('click', function(){
+jQuery(document).ready(function(){
+    jQuery('.hb-button').on('click', function(){
         console.log('yee');
-        $('nav ul').toggleClass('show');
+        jQuery('nav ul').toggleClass('show');
     });
 });

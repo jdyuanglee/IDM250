@@ -3,12 +3,26 @@
 	font-family: 'Poppins', sans-serif;
 	margin: 0;
 	padding: 0;
-    max-width: 100%;
+	max-width: 100%;
+
+	    /* Border for developing */
+    /* border-style: solid;
+    border-width: 1px;
+    border-color: rgb(0, 80, 252); */
+}
+
+input, button, submit {
+	border:none;
+	background:none;
+} 
+
+.magnify input#s{
+	display: none;
 }
 
 main li, aside li{
 	list-style-type: none;
-	margin-left: 1rem;
+	/* margin-left: 1rem; */
 }
 
 html{
@@ -21,7 +35,7 @@ img{
 	width: 100%;
 	/* max-height: 100%; */
 	text-align: center;
-	margin: auto;
+	/* margin: auto; */
 }
 
 p{
@@ -76,10 +90,22 @@ li:nth-child(1) > a:before{
 	max-height: 100%;
 	display: none;
 }
-.search{
+.magnify{
 	display: block;
-	padding: 1.6rem;
-	grid-area: search;
+	padding: 1.5rem 1rem;
+	grid-area: magnify;
+}
+
+.magnify input#searchsubmit{
+	background-image: url("../resources/magnify.png");
+	background-size: cover;
+    position: relative;
+    float: right;
+    width: 35px;
+    height: 35px;
+    top: -7px;
+	right: 2px;
+	color: transparent;
 }
 
 .ph{
@@ -137,7 +163,7 @@ nav ul li:nth-child(6) a{
 	color: #e24d53;	
 }
 
-li > a{
+nav a{
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #282828;
@@ -147,11 +173,11 @@ li > a{
 	position: relative;
 }
 
-li > a:hover{
+nav a:hover{
 	color: #000;
 }
 
-li > a:before{
+nav a:before{
 	margin: 0 0 -.1rem 0;
 	content:"";
 	position: absolute;
@@ -216,7 +242,7 @@ footer{
 	grid-template-columns: 4rem 1fr 1fr 5rem;
 	grid-template-rows: 9vh auto;
 	grid-template-areas: 
-	"menu logo logo search"
+	"menu logo logo magnify"
 	"ph ph ph ph"
 	"nav nav nav nav"
 }
@@ -243,7 +269,7 @@ footer{
     .ph{
         display: inline;
     }
-    .search{
+    .magnify{
 		padding: 2.5rem 2.5rem 0 0;
 	}
 	nav ul{
@@ -292,7 +318,10 @@ footer{
 }
 
 .about-aboutme img{
-	height: 10rem;
+	border-radius: 50%;
+	height: 11rem;
+	width: auto;
+	margin: auto;
 }
 
 @media (min-width: 768px){
@@ -459,7 +488,7 @@ h3{
     margin: 0 auto;
 }
 
-input#search-bar{
+.search-main input#s{
     margin: 0 auto;
     width: 100%;
     height: 50px;
@@ -469,13 +498,20 @@ input#search-bar{
     outline: none;
 }
 
-.search-icon{
+.search-main input#searchsubmit{
+	background-image: url("../resources/magnify.png");
+	background-size: cover;
     position: relative;
     float: right;
     width: 35px;
     height: 35px;
     top: -41px;
-    right: 10px;
+	right: 10px;
+	color: transparent;
+}
+
+.screen-reader-text{
+	display: none;
 }
 
 .searchbar{
@@ -488,10 +524,12 @@ input#search-bar{
     margin: auto;
 }
 .search-result{
-    display: none;
     width: 80vw;
     margin: 1rem auto;
-    text-align: left;
+	text-align: left;
+	border-style: solid;
+	border-width: 0 0 1px 0;
+padding: .5rem 0 1.5rem 0;
 }
 .search-grid{
 	display: grid;
@@ -506,7 +544,8 @@ input#search-bar{
         display: block;
         margin: .5rem 1rem 0 0; 
         text-align: left;
-        height: 8rem;
+		max-width: 40%;
+		float: left;
     }
     .search-main{
         width: 50%;
@@ -515,7 +554,9 @@ input#search-bar{
         width: 50vw;
     }
     .search-result{
-    display: flex;
+
+
+    /* display: flex; */
     }
     .search-grid{
 		display: grid;
@@ -781,14 +822,26 @@ input#search-bar{
 	width: 100%;
 }
 .sidebar-aside{
+	text-align: center;
 	margin: auto;
 	grid-area: sidebar-aside;
 	padding: 2rem;
 	width: 100%;
 }
-.sidebar-aside > li{
-	margin: 1rem 0;
+.sidebar-aside h1{
+	border-style: solid;
+	border-width: 1px 0;
+	padding: .5rem;
 }
+.sidebar-aside > li{
+	margin: 2rem;
+}
+
+.sidebar-aside #wp-calendar{
+	margin: auto;
+	width: 90%;
+}
+
 .sidebar-main p, .sidebar-main h1{
 	margin: 1rem 0;
 }
@@ -856,8 +909,17 @@ input#search-bar{
 		margin: 1rem;
 	}
 	.sidebar-aside{
+		text-align: left;
 		width: 70%;
-		padding: 0 2.5rem;
+		padding: 2rem 2.5rem;
+	}
+	.sidebar-aside h1{
+		padding: .5rem;
+		max-width: 13rem;
+	}
+	.sidebar-aside #wp-calendar{
+		margin: 0;
+		width: 60%;
 	}
 	.sidebar-main p{
 		font-size: .8rem;
@@ -876,11 +938,14 @@ input#search-bar{
 .general-main{
 	grid-area: general-main;
 	margin: auto;
-	width: 80%;
+	/* width: 80%; */
 }
-.general-main > *{
+.general-content{
+	padding: 1rem;
+}
+/* .general-main > *{
 	margin: 1rem 0;
-}
+} */
 
 /* .general h1, h5{
 	text-align: center;
@@ -934,7 +999,7 @@ input#search-bar{
 }
 @media (min-width: 960px){
 	.general-main{
-		width: 35vw;
+		width: 40vw;
 	}
 	.general-main p{
 		font-size: .8rem;
@@ -946,5 +1011,8 @@ input#search-bar{
 		grid-template-areas: 
 		"general-main general-main general-main general-main"
 		". media footer .";
+	}
+	.general-content{
+		margin: 1rem;
 	}
 }
